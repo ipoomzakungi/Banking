@@ -38,4 +38,39 @@ export const categories = [
         img: "https://en.kepoper.com/wp-content/uploads/2021/11/park-ju-hyun-profile.jpg",
         title:"CCCCCC",
     },
+];
+
+export const popularProducts = [
+    {
+        id:1,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:2,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:3,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:4,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:5,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:6,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:7,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
+    {
+        id:8,
+        img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
+    },
 ]

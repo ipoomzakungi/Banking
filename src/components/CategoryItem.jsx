@@ -18,10 +18,23 @@ const Info = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `
-const Title = styled.h1``
-const Button = styled.button``
+const Title = styled.h1`
+  color: white;
+  margin-bottom: 20px;
+`
+const Button = styled.button`
+  border: none;
+  padding: 10px;
+  background-color: white;
+  color: gray;
+  cursor: pointer;
+  font-weight: 600;
+`
 
 
 
