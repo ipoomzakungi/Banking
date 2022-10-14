@@ -1,18 +1,20 @@
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
 
 const Container = styled.div`
     width:100%;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     background-color: coral;
     position: relative;
     opacity: 0.45;
     overflow: hidden;
 `
-const Arrow = styled.div`
+const Prev_Arrow = styled.div`
+    opacity:0;
     width:50px;
     height: 50px;
     background-color: #fff7f7;
@@ -23,13 +25,62 @@ const Arrow = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
-    left: ${props => props.direction === "left" && "10px"};
-    right: ${props => props.direction === "right" && "10px"};
+    left: 30px;
     margin: auto;
-    cursor: pointer;
-    opacity: 0.5;
     z-index: 2;
+    transition: all 0.3s ease;
+
 `;
+const Next_Arrow = styled.div`
+    opacity:0;
+    width:50px;
+    height: 50px;
+    background-color: #fff7f7;
+    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 30px;
+    margin: auto;
+    z-index: 2;
+    transition: all 0.3s ease;
+
+`;
+
+const Prev_Slick_Arrow = styled.div`
+    position: absolute; 
+    z-index: 3;
+    cursor: pointer;
+    width:10%;
+    height: 100%;
+    left:0;
+    top: 0;
+    bottom: 0;
+    &:hover ${Prev_Arrow}{
+        opacity:1;
+    }
+
+`
+
+const Next_Slick_Arrow = styled.div`
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    width:10%;
+    height: 100%;
+    right:0;
+    top: 0;
+    bottom: 0;
+    &:hover ${Next_Arrow}{
+        opacity:1;
+    }
+`
+
+
+
 
 const Wrapper = styled.div`
     height: 100%;
@@ -49,7 +100,6 @@ const Slide = styled.div`
 const ImgContainer = styled.div`
     height: 80%;
     background-color: green;
-
     flex: 1;
 `
 const InfoContainer = styled.div`
@@ -80,18 +130,22 @@ const Slider = () => {
 
     const [slideIndex, setSlideIndex] = useState(0);
     const handleClick = (direction) => {
-        if(direction==="left"){
-            setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2)
-        } else{
-            setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0)
+        if (direction === "left") {
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
         }
 
     };
     return (
         <Container>
-            <Arrow direction="left" onClick={() => handleClick("left")}>
-                <ArrowLeftOutlined />
-            </Arrow>
+            <Prev_Slick_Arrow onClick={() => handleClick("left")}>
+                <Prev_Arrow >
+                    <ArrowBackIosNewIcon />
+
+                </Prev_Arrow>
+            </Prev_Slick_Arrow>
+
             <Wrapper slideIndex={slideIndex}>
                 {sliderItems.map(item => (
 
@@ -110,10 +164,13 @@ const Slider = () => {
                     </Slide>
                 ))}
 
-            </Wrapper>
-            <Arrow direction="right" onClick={() => handleClick("right")}>
-                <ArrowRightOutlined />
-            </Arrow>
+                </Wrapper>
+            <Next_Slick_Arrow onClick={() => handleClick("right")}>
+
+                <Next_Arrow >
+                    <ArrowForwardIosIcon />
+                </Next_Arrow>
+            </Next_Slick_Arrow>
         </Container>
     )
 }

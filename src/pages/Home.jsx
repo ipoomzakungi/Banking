@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Announcement from '../components/Announcement'
 import Categories from '../components/Categories'
+import CategoriesMenu from '../components/CategoriesMenu'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
@@ -16,6 +17,7 @@ const Home = () => {
       <Announcement />
       <Navbar />
       <Slider />
+      <CategoriesMenu/>
       <Categories/>
       <Products/>
       <Newsletter/>

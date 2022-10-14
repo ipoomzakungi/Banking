@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Container = styled.div`
     height:30px;
-    background-color:teal;
+    background-color:#7F41FF;
     color:white;
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@ const Container = styled.div`
 const Announcement = () => {
   return (
     <Container>
-        Super
+        This is a test Project that trying to clone SCB webpage
     </Container>
   )
 }
