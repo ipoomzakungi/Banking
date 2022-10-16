@@ -9,6 +9,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   ${mobile({ height: "50px" })}
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 5;
 `;
 
 const Wrapper = styled.div`

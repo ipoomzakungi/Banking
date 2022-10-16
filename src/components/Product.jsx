@@ -67,6 +67,8 @@ const Icon = styled.div`
 `
 
 
+
+
 const Product = ({item}) => {
   return (
     <Container>
