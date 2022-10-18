@@ -1,25 +1,20 @@
+
+
 export const sliderItems = [
     {
         id: 1,
-        img: "https://i.mydramalist.com/qpk1P_5f.jpg",
-        title: "1111",
-        desc: "BBB",
-        bg: "f5fafd"
+        img: "https://sv1.picz.in.th/images/2022/10/18/pMecOy.png",
+        title: "รูปตัวอย่างแอพ",
+        desc: "คำโปรยโฆษณา",
+        bg: "F9DBB5"
     },
     {
         id: 2,
         img: "https://i.mydramalist.com/qpk1P_5f.jpg",
-        title: "2222",
-        desc: "BBB",
-        bg: "fcf1ed"
+        title: "รูปทีมเท่ ๆ",
+        desc: "ใส่อะไรสักอย่าง",
+        bg: "D8B5AA"
     },
-    {
-        id: 1,
-        img: "https://i.mydramalist.com/qpk1P_5f.jpg",
-        title: "33333",
-        desc: "BBB",
-        bg: "fbf0f4"
-    }
 ];
 
 export const categories = [
@@ -74,3 +69,8 @@ export const popularProducts = [
         img:"https://image.kpopmap.com/2021/04/Park-JuHyun-For-VOGUE-Korea-Magazine-April-Issue-part2-18.jpg",
     },
 ]
+
+
+
+
+

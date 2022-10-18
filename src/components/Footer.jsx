@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 const Container = styled.div`
     display: flex;
+    scroll-behavior: smooth;
 `
 const Left = styled.div`
     flex: 1;
@@ -110,6 +111,7 @@ const Footer = () => {
                     XEmail@D 456
                 </ContactItem>
             </Right>
+            <div id="element_target"></div>
 
         </Container>
     )

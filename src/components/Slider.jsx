@@ -4,13 +4,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
 
+import adApp from "../images/advertise_app.png";
+
 const Container = styled.div`
     width:100%;
-    height: 80vh;
+    height: 70vh;
     display: flex;
     background-color: coral;
     position: relative;
-    opacity: 0.45;
     overflow: hidden;
 `
 const Prev_Arrow = styled.div`
@@ -63,6 +64,8 @@ const Prev_Slick_Arrow = styled.div`
         opacity:1;
     }
 
+
+
 `
 
 const Next_Slick_Arrow = styled.div`
@@ -94,20 +97,26 @@ const Slide = styled.div`
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: #${props => props.bg};
 `
 const ImgContainer = styled.div`
     height: 80%;
-    background-color: green;
+    background-color: #F9DBB5;
     flex: 1;
+    align-items: center;
+    justify-content: center;
 `
 const InfoContainer = styled.div`
     flex: 1;
 `
 
 const Image = styled.img`
-    height: 80%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
 `
 
 const Title = styled.h1`
@@ -123,6 +132,8 @@ const Button = styled.button`
     font-size: 20px;
     background-color: transparent;
     cursor: pointer;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 `
 
 
@@ -131,9 +142,9 @@ const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0);
     const handleClick = (direction) => {
         if (direction === "left") {
-            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1)
         } else {
-            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+            setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0)
         }
 
     };
@@ -148,8 +159,9 @@ const Slider = () => {
 
             <Wrapper slideIndex={slideIndex}>
                 {sliderItems.map(item => (
-
                     <Slide bg={item.bg} key={item.id}>
+
+                        {console.log(item.img)}
 
                         <ImgContainer>
                             <Image src={item.img} />
@@ -157,7 +169,7 @@ const Slider = () => {
                         <InfoContainer>
                             <Title>{item.title}</Title>
                             <Desc>{item.desc}</Desc>
-                            <Button>CC</Button>
+                            <Button>ดูเพิ่มเติม</Button>
 
                         </InfoContainer>
 
