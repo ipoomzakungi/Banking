@@ -5,14 +5,14 @@ export const sliderItems = [
         id: 1,
         img: "https://sv1.picz.in.th/images/2022/10/18/pMecOy.png",
         title: "Q+",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nesciunt obcaecati saepe, neque ipsum illo voluptatem quidem quos! Voluptate magnam ducimus et aperiam consequatur sed aliquam ipsam nam autem magni.",
+        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nesciunt obcaecati saepe, neque ipsum .",
         bg: "5E8379"
     },
     {
         id: 2,
         img: "https://i.mydramalist.com/qpk1P_5f.jpg",
         title: "รูปทีมเท่ ๆ",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nesciunt obcaecati saepe, neque ipsum illo voluptatem quidem quos! Voluptate magnam ducimus et aperiam consequatur sed aliquam ipsam nam autem magni.",
+        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nesciunt obcaecati saepe, neque ipsum .",
         bg: "76978E"
     },
 ];

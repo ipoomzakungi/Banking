@@ -18,6 +18,7 @@ const Wrapper = styled.div`
     max-width:1300px;
 
 
+
 `
 const Content = styled.div`
     position: relative;
@@ -69,6 +70,9 @@ const ContentPack = styled.div`
         maxWidth:"400px",
         minWidth:"400px",
         flexDirection:"column",
+        marginLeft:"auto",
+        marginRight:"auto",
+
 
     })}
 

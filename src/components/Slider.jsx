@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { sliderItems } from '../data'
 
 import adApp from "../images/advertise_app.png";
-import { mobile, tablet } from '../responsive';
+import { mobile, mobile_l, tablet, tablet_s } from '../responsive';
 
 const Container = styled.div`
     width:100%;
@@ -15,9 +15,12 @@ const Container = styled.div`
     background-color: coral;
     position: relative;
     overflow: hidden;
-    ${tablet({
-        display: "none",
-      })}
+    ${tablet_s({
+    display: "",
+})}
+${mobile_l({
+    height:"60vw",
+})}
 `
 const Prev_Arrow = styled.div`
     opacity:0.25;
@@ -61,6 +64,9 @@ const Prev_Slick_Arrow = styled.div`
     z-index: 3;
     cursor: pointer;
     width:10%;
+    min-width:90px;
+
+    max-width:200px;
     height: 100%;
     left:0;
     top: 0;
@@ -78,6 +84,8 @@ const Next_Slick_Arrow = styled.div`
     z-index: 3;
     cursor: pointer;
     width:10%;
+    min-width:90px;
+    max-width:200px;
     height: 100%;
     right:0;
     top: 0;
@@ -106,34 +114,54 @@ const Slide = styled.div`
     background-color: #${props => props.bg};
 `
 const ImgContainer = styled.div`
-    height: 80%;
+    height: 100%;
     background-color: #${props => props.bg};
-
+    width:50%;
     flex: 1;
     align-items: center;
     justify-content: center;
+    
 `
 const InfoContainer = styled.div`
     flex: 1;
 `
 
 const Image = styled.img`
-    height: 100%;
+    height: 90%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     
+
+
+    ${tablet_s({
+    height: "80%",
+})}
+${mobile_l({
+    height: "60%",
+})}
+
 `
 
 const Title = styled.h1`
-    font-size: 50px;
+    font-size: 50px;    
+    ${tablet_s({
+    fontSize: "25px",
+})}
 `
 const Desc = styled.p`
     margin: 30px 0px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 3px;
     width:80%;
+    ${tablet_s({
+    width: "70%",
+})}
+      ${mobile_l({
+    fontSize: "16px",
+    margin: "15px 0px",
+})}
 `
 const Button = styled.button`
     padding: 10px;
@@ -185,7 +213,7 @@ const Slider = () => {
                     </Slide>
                 ))}
 
-                </Wrapper>
+            </Wrapper>
             <Next_Slick_Arrow onClick={() => handleClick("right")}>
 
                 <Next_Arrow >

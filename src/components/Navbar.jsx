@@ -216,7 +216,7 @@ const Button = styled.button`
 const Navbar = () => {
 
   var Link = Scroll.Link;
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
 
   function scrollToTop() {
