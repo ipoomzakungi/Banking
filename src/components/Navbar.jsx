@@ -277,7 +277,7 @@ const Navbar = () => {
           {//<Link href="#element_target" smooth={true} offset={50} duration={500} >Go to content</Link>
           }
           <Button color="387766" hover="4b9480" borderRadius="5px" >
-            <Link className="test1" to="element_target" spy={true} smooth={true} offset={50} duration={500} >
+            <Link className="test1" to="Download" spy={true} smooth={true} offset={50} duration={500} >
               Download
             </Link>
           </Button>

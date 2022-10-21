@@ -257,7 +257,7 @@ const Features = () => {
                     <ImageContainer direction="left" position="relative" bg="C7D5B1">
                         <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
                     </ImageContainer>
-                    <Content border="none" shadow="none" bg="transparent" >
+                    <Content border="none" shadow="none" bg="transparent" name="Download" >
 
                         <Title textalign="right" >
                             หน้าสรุปผล
