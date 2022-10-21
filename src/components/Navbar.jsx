@@ -134,7 +134,8 @@ const Button = styled.button`
 
     transition: all 0.3s ease;
     &:hover{
-      background-color: #9dbdb5;
+      background-color: #${props => props.hover}};
+
       transform: scale(1.1);
     }
     &:active{
@@ -196,9 +197,9 @@ const Navbar = () => {
   </Button>*/}
           {//<Link href="#element_target" smooth={true} offset={50} duration={500} >Go to content</Link>
           }
-          <Button color="83A199" borderRadius="5px">
+          <Button color="387766"  hover="4b9480" borderRadius="5px" >
             <Link className="test1" to="element_target" spy={true} smooth={true} offset={50} duration={500} >
-              เริ่มต้นใช้งาน
+              Download
             </Link>
           </Button>
           {//<a onClick={scrollToTop}>To the top!</a>

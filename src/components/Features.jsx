@@ -10,20 +10,21 @@ const Container = styled.div`
 const Wrapper = styled.div`
     margin:auto;
     padding: 80px 20px 30px 30px;
-    height: 140vh;
     width: 85vw;
-    display:flex;
-    flex-wrap: wrap;
+    
     justify-content: center;    
+
+    max-width:1300px;
+
 
 `
 const Content = styled.div`
     position: relative;
 
-    height: 40vh;
-    width: 25vw;
-    margin: 10px;
+    height: 100%;
+    width: 45%;
 
+    margin-left:${props => props.mgleft};
     
     border-radius: 8px;
     box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -31,49 +32,58 @@ const Content = styled.div`
     border-style: ${props => props.border};
     box-shadow: ${props => props.shadow};
     background-color: ${props => props.bg};
+
+
+    max-height:290px;
 `
 const ContentPack = styled.div`
     position: relative;
     height: 40vh;
-    width: 50vw;
+    width: 80%;
     background-color:white;
-    margin: 10px;
+    margin-bottom: 20px;
+    margin-right: ${props => props.mgright};
+    margin-left: ${props => props.mgleft};
 
+    display:flex;
     border-radius: 8px;
     
     box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    
+    max-width:800px;
+    min-width:800px;
 
+    max-height:350px;
 `
 
 
 const ImageContainer = styled.div`
-    position: absolute;
+    position: ${props => props.position};
     top:0;
     bottom:0;
     left:${props => props.direction === "left" && "0px"};
     right:${props => props.direction === "right" && "-20px"};
 
-    background-color: black;
+    background-color: #387766;
     margin-right: 20px;
-    height: 40vh;
-    width: 25vw;
+    height: 100%;
+    width: 50%;
     border-radius: 8px;
 
     
+    max-height:350px;
+
     
 `
 
 const Image = styled.img`
-    position: absolute;
-    top:${props => props.top};
-    left:0;
-    right:0;
+    position: relative;
+    
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin:auto;
     height: auto; 
     width: ${props => props.width}%; 
-    max-width: 350px; 
+    max-width: 100%; 
     max-width: ${props => props.maxWidth}; 
     max-height: 350px;
 `
@@ -81,16 +91,22 @@ const Image = styled.img`
 const Title = styled.h1`
     position: relative;
     top: ${props => props.top};
+    font-size: 40px;
+    
     font-size: ${props => props.fz};
-    
     color: black;
-    margin:20px 20px 0px 20px;
+    margin-top:20px;
+    margin-right:auto;
+    margin-left:auto;
     text-align:${props => props.textalign};
-    
+    text-align:center;
 `
 const Desc = styled.p`
     text-align:${props => props.textalign};
     margin-left:${props => props.mgleft};
+    margin-right:${props => props.mgright};
+    font-size:22px;
+    font-weight:800px;
     padding:20px;
     width: 80%;
     width: ${props => props.width}%;
@@ -115,7 +131,7 @@ const Button = styled.button`
 
     transition: all 0.3s ease;
     &:hover{
-      background-color: #9dbdb5;
+      background-color: #${props => props.hover}};
       transform: scale(1.1);
   }
   &:active{
@@ -129,62 +145,95 @@ const Features = () => {
     return (
         <Container name="features">
             <Wrapper>
-                <ContentPack>
-                    <Content border="none" shadow="none" bg="transparent" >
-                    
-                        <Title>
+                <ContentPack  mgright="auto">
+                    <Content border="none" shadow="none" bg="transparent" mgleft="20px" >
+
+                        <Title >
                             สามารถใช้งานได้ทุกที่
                         </Title>
                         <Desc>
                             ขอเพียงแค่ Download App "ชื่อแอพ" ก็สามารถทำธุรกรรมได้ทุกที่ทั่วโลก
                         </Desc>
-                        <Button color="83A199" borderRadius="5px" right="20px" bottom="40px">
+                        <Button color="387766" hover="4b9480" borderRadius="5px" right="20px" bottom="40px">
                             Download
                         </Button>
                     </Content>
-                    <ImageContainer direction="right">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdZ2V.png"  />
+                    <ImageContainer direction="right" position="absolute" bg="387766">
+                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdZ2V.png" />
                     </ImageContainer>
                 </ContentPack>
-                <Content>
-                    <Image src="https://sv1.picz.in.th/images/2022/10/19/vWYMQW.png" width="60" top="5px" maxWidth="210px"/>
 
-                    <Title top="190px" fz="24px">
-                        แสกนจ่าย รวดเร็ว ด้วยระบบสแกน QR Code
-                    </Title>
-                </Content>
-                <Content>
-
-                    <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdNyI.png" top="5px" />
-
-                    <Title top="220px" fz="24px">
-                        ง่ายต่อการใช้งาน
-                    </Title>
-                </Content>
-                <ContentPack>
-                    <ImageContainer direction="left" >
+                <ContentPack mgleft="auto" >
+                    <ImageContainer direction="left" position="relative" bg="76978E">
                         <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
                     </ImageContainer>
-                    <Title textalign="right">
-                        มีความปลอดภัยสูง
-                    </Title>
-                    <Desc textalign="right" mgleft="60%" width="30">
-                        มีระบบการยืนยันตัวตนครั้งแรก ด้วย email และการใช้รหัสผ่านแบบ PIN 
-                    </Desc>
+                    <Content border="none" shadow="none" bg="transparent" >
+
+                        <Title textalign="right">
+                            การใช้งานที่ง่าย
+                        </Title>
+                        <Desc textalign="right" width="100%">
+                            สามารถจ่ายเงินได้ง่าย รวดเร็ว ด้วยระบบแสกน QR Code 
+                        </Desc>
+                    </Content>
                 </ContentPack>
 
-                <ContentPack>
-                    <Content border="none" shadow="none" bg="transparent">
+                <ContentPack mgright="auto">
+                    <Content border="none" shadow="none" bg="transparent" mgleft="20px">
                         <Title>
-                            มีระบบบัญชีร้านค้า
+                            หน้าต่างการใช้งานที่เป็นมิตร !
+                        </Title>
+                        <Desc>
+                            มีปุ่มเมนูการเข้าถึงโปรแกรมที่เข้าใจง่าย ไม่ยุ่งยาก
+                        </Desc>
+                    </Content>
+                    <ImageContainer direction="right" position="absolute" bg="A6B78C">
+                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
+                    </ImageContainer>
+                </ContentPack>
+
+                <ContentPack mgleft="auto">
+                    <ImageContainer direction="left" position="relative" bg="C7D5B1">
+                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
+                    </ImageContainer>
+                    <Content border="none" shadow="none" bg="transparent" >
+
+                        <Title textalign="right" >
+                            ความปลอดภัยสูง
+                        </Title>
+                        <Desc textalign="right" width="100%">
+                            มีระบบการยืนยันตัวตนครั้งแรก ด้วย email และการใช้รหัสผ่านแบบ PIN
+                        </Desc>
+                    </Content>
+                </ContentPack>
+
+                <ContentPack mgright="auto">
+                    <Content border="none" shadow="none" bg="transparent" mgleft="20px">
+                        <Title>
+                            ระบบบัญชีร้านค้า
                         </Title>
                         <Desc>
                             สามารถสร้างบัญชีร้านค้าได้ ทำให้การจัดการบัญชีร้านค้าของคุณ สะดวก รวดเร็วมากขึ้น
                         </Desc>
                     </Content>
-                    <ImageContainer direction="right">
+                    <ImageContainer direction="right" position="absolute" bg="F1EEE6">
                         <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
                     </ImageContainer>
+                </ContentPack>
+
+                <ContentPack mgleft="auto">
+                    <ImageContainer direction="left" position="relative" bg="C7D5B1">
+                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
+                    </ImageContainer>
+                    <Content border="none" shadow="none" bg="transparent" >
+
+                        <Title textalign="right" >
+                            หน้าสรุปผล
+                        </Title>
+                        <Desc textalign="right" width="100%">
+                            สรุปผลรายรับและรายจ่ายของคุณภายในหน้าเดียว อีกทั้งสามารถดูรายการย้อนหลังได้
+                        </Desc>
+                    </Content>
                 </ContentPack>
 
             </Wrapper>

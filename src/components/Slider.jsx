@@ -15,7 +15,7 @@ const Container = styled.div`
     overflow: hidden;
 `
 const Prev_Arrow = styled.div`
-    opacity:0;
+    opacity:0.25;
     width:50px;
     height: 50px;
     background-color: #fff7f7;
@@ -33,7 +33,7 @@ const Prev_Arrow = styled.div`
 
 `;
 const Next_Arrow = styled.div`
-    opacity:0;
+    opacity:0.25;
     width:50px;
     height: 50px;
     background-color: #fff7f7;
@@ -102,7 +102,8 @@ const Slide = styled.div`
 `
 const ImgContainer = styled.div`
     height: 80%;
-    background-color: #F9DBB5;
+    background-color: #${props => props.bg};
+
     flex: 1;
     align-items: center;
     justify-content: center;
@@ -163,7 +164,7 @@ const Slider = () => {
 
                         {console.log(item.img)}
 
-                        <ImgContainer>
+                        <ImgContainer bg={item.bg}>
                             <Image src={item.img} />
                         </ImgContainer>
                         <InfoContainer>
