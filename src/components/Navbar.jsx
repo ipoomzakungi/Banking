@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { mobile } from "../responsive"
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
+import { mobile, tablet } from "../responsive"
 import * as Scroll from 'react-scroll';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
@@ -11,7 +11,6 @@ const Container = styled.div`
   background-color:#F3F0EA;
   align-items: center;
   justify-content: center;
-  ${mobile({ height: "50px" })}
 
   position: sticky;
   top: -3px;
@@ -27,7 +26,6 @@ const Wrapper = styled.div`
   max-width:1300px;
   height:100%;
   
-  ${mobile({ padding: "10px 0px" })}
 
 `;
 
@@ -36,8 +34,9 @@ const Left = styled.div`
   display: flex;
   align-items: center;
   height:100%;
-  
-  ${mobile({ display: "none" })}
+  ${tablet({
+  flex: "1",
+})}
 
 `;
 
@@ -50,15 +49,11 @@ const Image = styled.img`
 `
 
 
-const Center = styled.div`
-flex:2;
-text-align: center;
-`;
 
 const Logo = styled.h1`
 font-weight:bold;
 margin-right:20px;
-${mobile({ fontSize: "24px" })}
+${tablet({})}
 display:flex;
 align-items:center;
 cursor:pointer;
@@ -69,18 +64,11 @@ flex:1;
 display:flex;
 align-items: center;
 justify-content: flex-end;
-${mobile({ height: "50px" })}
 
 
 `;
 
-const Language = styled.span`
-  font-size:14px
-  cursor: pointer;
-  margin-right: 20px;
-  cursor: pointer;
 
-`
 
 const Menu = styled.div`
   position:relative;
@@ -88,19 +76,41 @@ const Menu = styled.div`
   height:100%;
   width:450px;
   align-items:center;
-
-
+  ${tablet({
+  display: "none",
+})}
 `
 
+const MiniMenu = styled.div`
+${tablet({
+
+  position: "absolute",
+  display: "flex",
+  flexDirection: "column",
+  height: "30vh",
+  width: "100vw",
+  alignItems: "center",
+  right: "0",
+  backgroundColor: "lightblue",
+})}
+  
+transition: all 0.2s ease;
+ 
+  
+  ${({ visible }) => {
+    return css`
+        visibility: ${visible ? 'visible' : 'hidden'};
+    `;
+  }}
+  `
 
 const MenuItem = styled.div`
 
   font-size: 14px;
   font-size: ${props => props.fontSize}};
-  
 
   cursor: pointer;
-  border-bottom: 0px solid #6bb29f;
+  border-bottom: 0px solid #387766;
   padding-bottom: ${props => props.padBottom}};
 
   position:absolute;
@@ -113,9 +123,65 @@ const MenuItem = styled.div`
   &:hover{
     border-width: 3px;
   }
-  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+
+  ${tablet({
+  display: "none",
+})}
 
   
+}
+`
+
+const MiniMenuItem = styled.div`
+
+  font-size: 14px;
+  font-size: ${props => props.fontSize}};
+
+  cursor: pointer;
+  border-left: 0px solid #387766;
+  border-right: 0px solid #387766;
+
+
+  position:relative;
+  top:10px;
+  margin-top:40px;
+  
+  width:70%;
+
+  text-align:center;
+
+  transition: all 0.1s ease;
+
+  &:hover{
+    border-width: 5px;
+  }
+  ${({ visible }) => {
+    return css`
+        visibility: ${visible ? 'visible' : 'hidden'};
+    `;
+  }}
+
+`
+
+const Bar = styled.div`
+  display: block;
+  width:25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+`
+
+const Hamburger = styled.div`
+  display: none;
+  cursor: pointer;
+  ${tablet({
+  display: "block",
+})}
+  
+&:active ${MiniMenu}{
+  height:50vh;
 }
 `
 
@@ -141,12 +207,17 @@ const Button = styled.button`
     &:active{
       background-color: #ffffff;
     }
+    ${tablet({
+  display: "none",
+})}
 
 `
 
 const Navbar = () => {
 
   var Link = Scroll.Link;
+  const [visible, setVisible] = useState(true);
+
 
   function scrollToTop() {
     scroll.scrollToTop();
@@ -158,6 +229,14 @@ const Navbar = () => {
       smooth: "easeInOutQuart"
     });
   }
+  function redirect() {
+    window.open('https://softarch-banking.gitbook.io/', '_blank', '');
+  }
+
+  function handleClick() {
+    setVisible(!visible);
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -170,13 +249,13 @@ const Navbar = () => {
           </Logo>
           <Menu>
 
-            <MenuItem  onClick={() => scrollTo("features")} fontSize="20px" padBottom="9px" top="20px"  >
+            <MenuItem onClick={() => scrollTo("features")} fontSize="22px" padBottom="8px" top="18px"  >
               ผลิตภัณฑ์ของเรา
             </MenuItem>
-            <MenuItem padBottom="13px" left="35%" top="25px">
+            <MenuItem onClick={() => redirect()} fontSize="16px" padBottom="11px" left="40%" top="25px">
               Document
             </MenuItem>
-            <MenuItem padBottom="13px" left="55%" top="25px">
+            <MenuItem onClick={() => scrollTo("about-us")} fontSize="16px" padBottom="11px" left="65%" top="25px">
               About us
             </MenuItem>
 
@@ -197,15 +276,33 @@ const Navbar = () => {
   </Button>*/}
           {//<Link href="#element_target" smooth={true} offset={50} duration={500} >Go to content</Link>
           }
-          <Button color="387766"  hover="4b9480" borderRadius="5px" >
+          <Button color="387766" hover="4b9480" borderRadius="5px" >
             <Link className="test1" to="element_target" spy={true} smooth={true} offset={50} duration={500} >
               Download
             </Link>
           </Button>
+          <Hamburger onClick={handleClick}>
+            <Bar></Bar>
+            <Bar></Bar>
+            <Bar></Bar>
+          </Hamburger>
+
           {//<a onClick={scrollToTop}>To the top!</a>
           }
         </Right>
       </Wrapper>
+      <MiniMenu visible={visible}>
+        <MiniMenuItem visible={visible} onClick={() => scrollTo("features")} fontSize="24px" padLeft="8px"   >
+          ผลิตภัณฑ์ของเรา
+        </MiniMenuItem>
+        <MiniMenuItem visible={visible} onClick={() => redirect()} fontSize="22px" padLeft="11px" >
+          Document
+        </MiniMenuItem>
+        <MiniMenuItem visible={visible} onClick={() => scrollTo("about-us")} fontSize="22px" padLeft="11px"  >
+          About us
+        </MiniMenuItem>
+
+      </MiniMenu>
     </Container >
   )
 }

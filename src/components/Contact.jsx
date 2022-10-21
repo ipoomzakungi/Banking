@@ -6,9 +6,10 @@ const Container = styled.div`
     display:flex;
     align-items: center;
     justify-content:center;
-    margin-top:20px;
-    margin-bottom:50px;
+    padding-top:20px;
+    padding-bottom:20px;
 
+    background-color:#F1EEE6;
 `
 
 
@@ -24,8 +25,8 @@ const Wrapper = styled.div`
     max-height:800px;
     border-radius: 8px;
 
-    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-
+    background:white;
+    border-radius:8px;
 
 `
 
@@ -47,7 +48,7 @@ const Map = styled.iframe`
 const ContactDetail = styled.div`
   flex:1;
   margin-left:10px;
-
+  
 
 `
 

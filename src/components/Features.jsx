@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mobile, tablet ,tablet_s} from '../responsive'
 
 const Container = styled.div`
     flex:1;
@@ -35,6 +36,13 @@ const Content = styled.div`
 
 
     max-height:290px;
+    ${tablet_s({
+        height: "50%",
+        width: "100%",
+        margin:"0",
+
+        
+    })}
 `
 const ContentPack = styled.div`
     position: relative;
@@ -54,6 +62,16 @@ const ContentPack = styled.div`
     min-width:800px;
 
     max-height:350px;
+
+    ${tablet_s({
+        height:"80vh",
+        maxHeight:"581px",
+        maxWidth:"400px",
+        minWidth:"400px",
+        flexDirection:"column",
+
+    })}
+
 `
 
 
@@ -72,6 +90,16 @@ const ImageContainer = styled.div`
 
     
     max-height:350px;
+
+    ${tablet_s({
+        position:"relative",
+        height: "50%",
+        width: "100%",
+        margin:"0",
+        left:"0",
+
+        
+    })}
 
     
 `
@@ -230,14 +258,14 @@ const Features = () => {
                         <Title textalign="right" >
                             หน้าสรุปผล
                         </Title>
-                        <Desc textalign="right" width="100%">
+                        <Desc textalign="right" width="100%" name="about-us">
                             สรุปผลรายรับและรายจ่ายของคุณภายในหน้าเดียว อีกทั้งสามารถดูรายการย้อนหลังได้
                         </Desc>
                     </Content>
                 </ContentPack>
 
             </Wrapper>
-        </Container >
+        </Container>
     )
 }
 

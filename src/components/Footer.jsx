@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const Container = styled.div`
     display: flex;
-    scroll-behavior: smooth;
+    background-color:#387766;
 `
 const Left = styled.div`
     flex: 1;

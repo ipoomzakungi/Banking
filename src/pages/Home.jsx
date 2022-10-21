@@ -10,6 +10,8 @@ import Newsletter from '../components/Newsletter'
 import Products from '../components/Products'
 import Slider from '../components/Slider'
 import Contact from '../components/Contact'
+import About from '../components/About'
+import Download from '../components/Download'
 
 
 
@@ -20,6 +22,8 @@ const Home = () => {
       <Navbar />
       <Slider />
       <Features/>
+      <Download/>
+      <About/>
       <Contact/>
       <Footer/>
     </div>
