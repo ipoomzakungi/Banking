@@ -1,6 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import { mobile, tablet ,tablet_s} from '../responsive'
+import styled, { keyframes } from 'styled-components'
+import { mobile, tablet, tablet_s } from '../responsive'
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { AnimatedOnScroll } from 'react-animated-css-onscroll'
 
 const Container = styled.div`
     flex:1;
@@ -8,6 +10,17 @@ const Container = styled.div`
     background-color:#F3F0EA;
 `
 
+const slideIn = keyframes`
+  from {
+    margin-top: 20%;
+    opacity:0.2;
+  }
+
+  to {
+    margin-top: 0%;
+    opacity:1;
+  }
+`;
 const Wrapper = styled.div`
     margin:auto;
     padding: 80px 20px 30px 30px;
@@ -38,12 +51,12 @@ const Content = styled.div`
 
     max-height:290px;
     ${tablet_s({
-        height: "50%",
-        width: "100%",
-        margin:"0",
+    height: "50%",
+    width: "100%",
+    margin: "0",
 
-        
-    })}
+
+})}
 `
 const ContentPack = styled.div`
     position: relative;
@@ -65,16 +78,16 @@ const ContentPack = styled.div`
     max-height:350px;
 
     ${tablet_s({
-        height:"80vh",
-        maxHeight:"581px",
-        maxWidth:"400px",
-        minWidth:"400px",
-        flexDirection:"column",
-        marginLeft:"auto",
-        marginRight:"auto",
+    height: "80vh",
+    maxHeight: "581px",
+    maxWidth: "400px",
+    minWidth: "400px",
+    flexDirection: "column",
+    marginLeft: "auto",
+    marginRight: "auto",
 
 
-    })}
+})}
 
 `
 
@@ -96,14 +109,14 @@ const ImageContainer = styled.div`
     max-height:350px;
 
     ${tablet_s({
-        position:"relative",
-        height: "50%",
-        width: "100%",
-        margin:"0",
-        left:"0",
+    position: "relative",
+    height: "50%",
+    width: "100%",
+    margin: "0",
+    left: "0",
 
-        
-    })}
+
+})}
 
     
 `
@@ -118,6 +131,8 @@ const Image = styled.img`
     max-width: 100%; 
     max-width: ${props => props.maxWidth}; 
     max-height: 350px;
+
+   
 `
 
 const Title = styled.h1`
@@ -132,6 +147,9 @@ const Title = styled.h1`
     margin-left:auto;
     text-align:${props => props.textalign};
     text-align:center;
+
+    
+
 `
 const Desc = styled.p`
     text-align:${props => props.textalign};
@@ -142,6 +160,9 @@ const Desc = styled.p`
     padding:20px;
     width: 80%;
     width: ${props => props.width}%;
+
+    
+
 `;
 
 const Button = styled.button`
@@ -173,100 +194,124 @@ const Button = styled.button`
 
 `
 
+
 const Features = () => {
+    function scrollTo(name) {
+        scroller.scrollTo(name, {
+            duration: 800,
+            delay: 0,
+            smooth: "easeInOutQuart"
+        });
+    }
+
+
+
     return (
         <Container name="features">
             <Wrapper>
-                <ContentPack  mgright="auto">
-                    <Content border="none" shadow="none" bg="transparent" mgleft="20px" >
+                <AnimatedOnScroll animationIn="fadeInUp" animationInDuration="1000">
+                    <ContentPack mgright="auto">
 
-                        <Title >
-                            สามารถใช้งานได้ทุกที่
-                        </Title>
-                        <Desc>
-                            ขอเพียงแค่ Download App "ชื่อแอพ" ก็สามารถทำธุรกรรมได้ทุกที่ทั่วโลก
-                        </Desc>
-                        <Button color="387766" hover="4b9480" borderRadius="5px" right="20px" bottom="40px">
-                            Download
-                        </Button>
-                    </Content>
-                    <ImageContainer direction="right" position="absolute" bg="387766">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdZ2V.png" />
-                    </ImageContainer>
-                </ContentPack>
+                        <Content border="none" shadow="none" bg="transparent" mgleft="20px" >
 
-                <ContentPack mgleft="auto" >
-                    <ImageContainer direction="left" position="relative" bg="76978E">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
-                    </ImageContainer>
-                    <Content border="none" shadow="none" bg="transparent" >
+                            <Title >
+                                สามารถใช้งานได้ทุกที่
+                            </Title>
+                            <Desc>
+                                ขอเพียงแค่ Download App "ชื่อแอพ" ก็สามารถทำธุรกรรมได้ทุกที่ทั่วโลก
+                            </Desc>
+                            <Button onClick={() => scrollTo("about-us")} color="387766" hover="4b9480" borderRadius="5px" right="20px" bottom="40px">
+                                Download
+                            </Button>
+                        </Content>
+                        <ImageContainer direction="right" position="absolute" bg="387766">
+                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdZ2V.png" />
+                        </ImageContainer>
+                    </ContentPack>
+                </AnimatedOnScroll>
 
-                        <Title textalign="right">
-                            การใช้งานที่ง่าย
-                        </Title>
-                        <Desc textalign="right" width="100%">
-                            สามารถจ่ายเงินได้ง่าย รวดเร็ว ด้วยระบบแสกน QR Code 
-                        </Desc>
-                    </Content>
-                </ContentPack>
+                <AnimatedOnScroll animationIn="fadeInUp" animationInDuration="1000">
+                    <ContentPack mgleft="auto" >
+                        <ImageContainer direction="left" position="relative" bg="76978E">
+                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
+                        </ImageContainer>
+                        <Content border="none" shadow="none" bg="transparent" >
 
-                <ContentPack mgright="auto">
-                    <Content border="none" shadow="none" bg="transparent" mgleft="20px">
-                        <Title>
-                            หน้าต่างการใช้งานที่เป็นมิตร !
-                        </Title>
-                        <Desc>
-                            มีปุ่มเมนูการเข้าถึงโปรแกรมที่เข้าใจง่าย ไม่ยุ่งยาก
-                        </Desc>
-                    </Content>
-                    <ImageContainer direction="right" position="absolute" bg="A6B78C">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
-                    </ImageContainer>
-                </ContentPack>
+                            <Title textalign="right">
+                                การใช้งานที่ง่าย
+                            </Title>
+                            <Desc textalign="right" width="100%">
+                                สามารถจ่ายเงินได้ง่าย รวดเร็ว ด้วยระบบแสกน QR Code
+                            </Desc>
+                        </Content>
+                    </ContentPack>
+                </AnimatedOnScroll>
+                <AnimatedOnScroll animationIn="fadeInUp" animationInDuration="1000">
 
-                <ContentPack mgleft="auto">
-                    <ImageContainer direction="left" position="relative" bg="C7D5B1">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
-                    </ImageContainer>
-                    <Content border="none" shadow="none" bg="transparent" >
+                    <ContentPack mgright="auto">
+                        <Content border="none" shadow="none" bg="transparent" mgleft="20px">
+                            <Title>
+                                หน้าต่างการใช้งานที่เป็นมิตร !
+                            </Title>
+                            <Desc>
+                                มีปุ่มเมนูการเข้าถึงโปรแกรมที่เข้าใจง่าย ไม่ยุ่งยาก
+                            </Desc>
+                        </Content>
+                        <ImageContainer direction="right" position="absolute" bg="A6B78C">
+                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
+                        </ImageContainer>
+                    </ContentPack>
+                </AnimatedOnScroll>
+                <AnimatedOnScroll animationIn="fadeInUp" animationInDuration="1000">
 
-                        <Title textalign="right" >
-                            ความปลอดภัยสูง
-                        </Title>
-                        <Desc textalign="right" width="100%">
-                            มีระบบการยืนยันตัวตนครั้งแรก ด้วย email และการใช้รหัสผ่านแบบ PIN
-                        </Desc>
-                    </Content>
-                </ContentPack>
+                    <ContentPack mgleft="auto">
+                        <ImageContainer direction="left" position="relative" bg="C7D5B1">
+                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
+                        </ImageContainer>
+                        <Content border="none" shadow="none" bg="transparent" >
 
-                <ContentPack mgright="auto">
-                    <Content border="none" shadow="none" bg="transparent" mgleft="20px">
-                        <Title>
-                            ระบบบัญชีร้านค้า
-                        </Title>
-                        <Desc>
-                            สามารถสร้างบัญชีร้านค้าได้ ทำให้การจัดการบัญชีร้านค้าของคุณ สะดวก รวดเร็วมากขึ้น
-                        </Desc>
-                    </Content>
-                    <ImageContainer direction="right" position="absolute" bg="F1EEE6">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
-                    </ImageContainer>
-                </ContentPack>
+                            <Title textalign="right" >
+                                ความปลอดภัยสูง
+                            </Title>
+                            <Desc textalign="right" width="100%">
+                                มีระบบการยืนยันตัวตนครั้งแรก ด้วย email และการใช้รหัสผ่านแบบ PIN
+                            </Desc>
+                        </Content>
+                    </ContentPack>
+                </AnimatedOnScroll>
+                <AnimatedOnScroll animationIn="fadeInUp" animationInDuration="1000">
 
-                <ContentPack mgleft="auto">
-                    <ImageContainer direction="left" position="relative" bg="C7D5B1">
-                        <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
-                    </ImageContainer>
-                    <Content border="none" shadow="none" bg="transparent" name="Download" >
+                    <ContentPack mgright="auto">
+                        <Content border="none" shadow="none" bg="transparent" mgleft="20px">
+                            <Title>
+                                ระบบบัญชีร้านค้า
+                            </Title>
+                            <Desc>
+                                สามารถสร้างบัญชีร้านค้าได้ ทำให้การจัดการบัญชีร้านค้าของคุณ สะดวก รวดเร็วมากขึ้น
+                            </Desc>
+                        </Content>
+                        <ImageContainer direction="right" position="absolute" bg="F1EEE6">
+                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
+                        </ImageContainer>
+                    </ContentPack>
+                </AnimatedOnScroll>
+                <AnimatedOnScroll animationIn="fadeInUp" animationInDuration="1000">
 
-                        <Title textalign="right" >
-                            หน้าสรุปผล
-                        </Title>
-                        <Desc textalign="right" width="100%" name="about-us">
-                            สรุปผลรายรับและรายจ่ายของคุณภายในหน้าเดียว อีกทั้งสามารถดูรายการย้อนหลังได้
-                        </Desc>
-                    </Content>
-                </ContentPack>
+                    <ContentPack mgleft="auto">
+                        <ImageContainer direction="left" position="relative" bg="C7D5B1">
+                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
+                        </ImageContainer>
+                        <Content border="none" shadow="none" bg="transparent" name="Download" >
+
+                            <Title textalign="right" >
+                                หน้าสรุปผล
+                            </Title>
+                            <Desc textalign="right" width="100%" name="about-us">
+                                สรุปผลรายรับและรายจ่ายของคุณภายในหน้าเดียว อีกทั้งสามารถดูรายการย้อนหลังได้
+                            </Desc>
+                        </Content>
+                    </ContentPack>
+                </AnimatedOnScroll>
 
             </Wrapper>
         </Container>
