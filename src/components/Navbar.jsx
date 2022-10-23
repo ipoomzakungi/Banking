@@ -3,6 +3,10 @@ import styled, { css } from 'styled-components'
 import { mobile, tablet } from "../responsive"
 import * as Scroll from 'react-scroll';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Badge } from '@material-ui/core';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutStart } from '../redux/userRedux';
 
 
 const Container = styled.div`
@@ -112,6 +116,9 @@ const MenuItem = styled.div`
   cursor: pointer;
   border-bottom: 0px solid #387766;
   padding-bottom: ${props => props.padBottom}};
+  padding-left: ${props => props.padLeft}};
+  padding-right: ${props => props.padRight}};
+
 
   position:absolute;
   top:${props => props.top}};
@@ -214,6 +221,8 @@ const Button = styled.button`
 `
 
 const Navbar = () => {
+  const user = useSelector(state => state.user.currentUser)
+  const dispatch = useDispatch();
 
   var Link = Scroll.Link;
   const [visible, setVisible] = useState(false);
@@ -235,6 +244,10 @@ const Navbar = () => {
 
   function handleClick() {
     setVisible(!visible);
+  }
+
+  function handleClickLogout() {
+    dispatch(logoutStart())
   }
 
   return (
@@ -274,13 +287,27 @@ const Navbar = () => {
           <Button color="7A58BF" borderRadius="5px">
             เข้าสู่ระบบ
   </Button>*/}
-          {//<Link href="#element_target" smooth={true} offset={50} duration={500} >Go to content</Link>
+          {!user &&
+            <Button color="387766" hover="4b9480" borderRadius="5px" >
+              <Link className="test1" to="Download" spy={true} smooth={true} offset={50} duration={500} >
+                Download
+              </Link>
+            </Button>
           }
-          <Button color="387766" hover="4b9480" borderRadius="5px" >
-            <Link className="test1" to="Download" spy={true} smooth={true} offset={50} duration={500} >
-              Download
-            </Link>
-          </Button>
+          {user &&
+            <MenuItem onClick={handleClickLogout} padBottom="14px" padLeft = "5px" padRight="5px"  top="24px">
+
+              <Badge color="primary"  >
+                <LogoutOutlinedIcon />
+              </Badge>
+            </MenuItem>
+
+          }
+
+
+
+          {//  #####   mobile part  #####
+          }
           <Hamburger onClick={handleClick}>
             <Bar></Bar>
             <Bar></Bar>

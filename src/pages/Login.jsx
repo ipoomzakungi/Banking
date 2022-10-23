@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../redux/apiCall'
+import { resetError } from '../redux/userRedux'
 
 
 const Container = styled.div`
@@ -66,12 +67,17 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
-    const {isFetching,err} = useSelector(state=> state.user)
+    const { isFetching, error } = useSelector(state => state.user)
 
     const handleClick = (e) => {
         e.preventDefault();
-        login(dispatch,{username,password})
+        login(dispatch, { username, password })
     };
+    useEffect(() => {
+        //console.log("object")
+        dispatch(resetError());
+
+    }, [])
     return (
         <Container>
             <Wrapper>
@@ -93,9 +99,9 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <Button onClick={handleClick} disabled={isFetching}>Login</Button>
-                    {err && <Error>Something went wrong</Error>}
+                    {error && <Error>Something went wrong</Error>}
 
-                    
+
 
                 </Form>
             </Wrapper>

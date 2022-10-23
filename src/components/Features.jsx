@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { mobile, tablet, tablet_s } from '../responsive'
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {  animateScroll as  scroller } from 'react-scroll'
 import { AnimatedOnScroll } from 'react-animated-css-onscroll'
 
 const Container = styled.div`
@@ -10,17 +10,7 @@ const Container = styled.div`
     background-color:#F3F0EA;
 `
 
-const slideIn = keyframes`
-  from {
-    margin-top: 20%;
-    opacity:0.2;
-  }
 
-  to {
-    margin-top: 0%;
-    opacity:1;
-  }
-`;
 const Wrapper = styled.div`
     margin:auto;
     padding: 80px 20px 30px 30px;

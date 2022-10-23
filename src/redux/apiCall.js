@@ -1,5 +1,5 @@
 import { publicRequest } from "../requestMethod";
-import { loginFailure, loginStart, loginSuccess } from "./userRedux";
+import { fetchingData, loginFailure, loginStart, loginSuccess } from "./userRedux";
 
 export const login = async (dispatch, user) => {
     dispatch(loginStart());
@@ -9,9 +9,30 @@ export const login = async (dispatch, user) => {
             console.log(response.data);
         });
         };*/
-      const res = await publicRequest.post("/auth/login", user);
-      dispatch(loginSuccess(res.data));
+        //console.log(user)
+        //const res = await publicRequest.post("/auth/login", user);
+        
+        if (user.username === 'admin' && user.password === 'admin') {
+            dispatch(loginSuccess(user));
+            alert("Welcome admin")
+        }
+        else{
+            throw 'Wrong username or password!';
+        }
     } catch (err) {
-      dispatch(loginFailure());
+        console.log(err)
+        dispatch(loginFailure());
     }
-  };
+};
+
+export const updateAmount = async (dispatch, user) => {
+    try {
+        console.log(user)
+        
+        const res = await publicRequest.put("/test/deposit", user);
+        dispatch(fetchingData());
+        
+    } catch (err) {
+        console.log(err)
+    }
+};
