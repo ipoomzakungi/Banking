@@ -139,7 +139,7 @@ const Test = () => {
 
 
     return (
-
+        
         <DataTable
             columns={columns}
             data={users}
