@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 
 const Container = styled.div`
@@ -28,6 +29,12 @@ const Wrapper = styled.div`
     background:white;
     border-radius:8px;
 
+    ${mobile({
+      flexDirection : "column",
+      maxWidth:"320px",
+      height:"100vh",
+      minHeight:"500px",
+  })}
 `
 
 const MapContainer = styled.div`
@@ -64,6 +71,9 @@ const Title = styled.h1`
     margin-left:auto;
     text-align:${props => props.textalign};
     text-align:center;
+    ${mobile({
+      fontSize:"24px",
+  })}
 `
 const Desc = styled.p`
     text-align:${props => props.textalign};
@@ -76,6 +86,9 @@ const Desc = styled.p`
     padding:20px;
     width: 80%;
     width: ${props => props.width}%;
+    ${mobile({
+      fontSize:"16px",
+  })}
 `;
 
 const Contact = () => {

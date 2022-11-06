@@ -30,6 +30,10 @@ const Wrapper = styled.div`
   max-width:1300px;
   height:100%;
   
+  ${mobile({
+    padding:"3px 25px",
+
+})}
 
 `;
 
@@ -62,6 +66,11 @@ display:flex;
 align-items:center;
 cursor:pointer;
 
+${mobile({
+  fontSize: "24px",
+
+})}
+
 `
 const Right = styled.div`
 flex:1;
@@ -87,7 +96,18 @@ const Menu = styled.div`
 
 const MiniMenu = styled.div`
 ${tablet({
-
+  opacity: "0.8",
+  position: "absolute",
+  display: "flex",
+  flexDirection: "column",
+  height: "25vh",
+  width: "100vw",
+  alignItems: "center",
+  right: "0",
+  backgroundColor: "coral",
+})}
+${mobile({
+  opacity: "0.8",
   position: "absolute",
   display: "flex",
   flexDirection: "column",
@@ -95,9 +115,9 @@ ${tablet({
   width: "100vw",
   alignItems: "center",
   right: "0",
-  backgroundColor: "lightblue",
+  backgroundColor: "pink",
 })}
-  
+
 transition: all 0.2s ease;
  
   
@@ -148,10 +168,10 @@ const MiniMenuItem = styled.div`
   border-left: 0px solid #387766;
   border-right: 0px solid #387766;
 
-
+  
   position:relative;
   top:10px;
-  margin-top:40px;
+  margin-top:30px;
   
   width:70%;
 
@@ -231,12 +251,17 @@ const Navbar = () => {
   function scrollToTop() {
     scroll.scrollToTop();
   }
+  function setVisibleFalse() {
+    setVisible(false);
+  }
   function scrollTo(name) {
     scroller.scrollTo(name, {
       duration: 800,
       delay: 0,
       smooth: "easeInOutQuart"
+      
     });
+    setVisibleFalse()
   }
   function redirect() {
     window.open('https://softarch-banking.gitbook.io/', '_blank', '');
@@ -295,7 +320,7 @@ const Navbar = () => {
             </Button>
           }
           {user &&
-            <MenuItem onClick={handleClickLogout} padBottom="14px" padLeft = "5px" padRight="5px"  top="24px">
+            <MenuItem onClick={handleClickLogout} padBottom="14px" padLeft="5px" padRight="5px" top="24px">
 
               <Badge color="primary"  >
                 <LogoutOutlinedIcon />

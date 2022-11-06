@@ -67,11 +67,27 @@ const ContentPack = styled.div`
 
     max-height:350px;
 
+
+    
     ${tablet_s({
     height: "80vh",
     maxHeight: "581px",
+    minHeight: "581px",
     maxWidth: "400px",
     minWidth: "400px",
+    flexDirection: "column",
+    marginLeft: "auto",
+    marginRight: "auto",
+
+
+})}
+
+${mobile({
+    maxHeight: "450px",
+    minHeight: "450px",
+    
+    maxWidth: "250px",
+    minWidth: "250px",
     flexDirection: "column",
     marginLeft: "auto",
     marginRight: "auto",
@@ -107,7 +123,14 @@ const ImageContainer = styled.div`
 
 
 })}
+${mobile({
+    position: "relative",
+    height: "50%",
+    width: "100%",
+    margin: "0",
+    left: "0",
 
+})}
     
 `
 
@@ -139,7 +162,10 @@ const Title = styled.h1`
     text-align:center;
 
     
-
+    ${mobile({
+        fontSize: "25px",
+    
+    })}
 `
 const Desc = styled.p`
     text-align:${props => props.textalign};
@@ -151,7 +177,10 @@ const Desc = styled.p`
     width: 80%;
     width: ${props => props.width}%;
 
+    ${mobile({
+        fontSize: "18px",
     
+    })}    
 
 `;
 
@@ -181,6 +210,12 @@ const Button = styled.button`
     background-color: #ffffff;
   }
 
+  ${mobile({
+    padding: "7px",
+    fontSize: "12px",
+    bottom: "10%",
+
+})}    
 
 `
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 
 const Container = styled.div`
@@ -26,12 +27,22 @@ const Wrapper = styled.div`
 
     box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 
-
+    ${mobile({
+      flexDirection : "column",
+      maxWidth:"320px",
+      height:"80vh",
+      maxHeight:"800px",
+  })}
 `
 
 const ImageContainer = styled.div`
   flex:1;
-  
+  background-color:coral;
+  ${mobile({
+    width : "100%",
+    height : "50%",
+    backgroundColor: "coral",
+})}
 `
 
 
@@ -54,6 +65,9 @@ const Title = styled.h1`
     margin-left:auto;
     text-align:${props => props.textalign};
     text-align:center;
+    ${mobile({
+      fontSize:"26px",
+  })}
 `
 const Desc = styled.p`
     text-align:${props => props.textalign};
@@ -66,6 +80,9 @@ const Desc = styled.p`
     padding:20px;
     width: 80%;
     width: ${props => props.width}%;
+    ${mobile({
+      fontSize:"15px",
+  })}
 `;
 
 const About = () => {

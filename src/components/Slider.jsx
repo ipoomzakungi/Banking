@@ -21,6 +21,10 @@ const Container = styled.div`
 ${mobile_l({
     height: "55vw",
 })}
+${mobile({
+    height: "75vw",
+})}
+
 `
 const Prev_Arrow = styled.div`
     opacity:0.25;
@@ -120,7 +124,9 @@ const ImgContainer = styled.div`
     flex: 1;
     align-items: center;
     justify-content: center;
-
+    ${mobile_l({
+        marginTop:"20vw",
+    })}
     
 `
 const InfoContainer = styled.div`
@@ -159,12 +165,21 @@ const Desc = styled.p`
     font-weight: 600;
     letter-spacing: 3px;
     width:80%;
+    text-align: justify;
     ${tablet_s({
     width: "70%",
 })}
       ${mobile_l({
     fontSize: "14px",
     margin: "15px 0px",
+    
+})}
+${mobile({
+    fontSize: "12px",
+    letterSpacing: "1px",
+    margin: "15px 0px",
+
+
 })}
 `
 const Button = styled.button`
@@ -176,9 +191,9 @@ const Button = styled.button`
     border:none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     ${mobile_l({
-        padding: "5px",
-        fontSize: "14px",
-    })}
+    padding: "5px",
+    fontSize: "14px",
+})}
 `
 
 
