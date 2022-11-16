@@ -96,7 +96,7 @@ const Menu = styled.div`
 
 const MiniMenu = styled.div`
 ${tablet({
-  opacity: "0.8",
+  opacity: "0.9",
   position: "absolute",
   display: "flex",
   flexDirection: "column",
@@ -104,10 +104,10 @@ ${tablet({
   width: "100vw",
   alignItems: "center",
   right: "0",
-  backgroundColor: "coral",
+  backgroundColor: "white",
 })}
 ${mobile({
-  opacity: "0.8",
+  opacity: "0.9",
   position: "absolute",
   display: "flex",
   flexDirection: "column",
@@ -115,7 +115,7 @@ ${mobile({
   width: "100vw",
   alignItems: "center",
   right: "0",
-  backgroundColor: "pink",
+  backgroundColor: "white",
 })}
 
 transition: all 0.2s ease;

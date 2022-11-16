@@ -4,8 +4,8 @@ export const sliderItems = [
     {
         id: 1,
         img: "https://sv1.picz.in.th/images/2022/10/18/pMecOy.png",
-        title: "Q+",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nesciunt obcaecati saepe, neque ipsum .",
+        title: "Q Plus",
+        desc: "โปรเจค QPlus เป็นโปรเจคที่จัดทำขึ้นโดยกลุ่ม Q4U ในวิชา Software Architecture and Design ในปีการศึกษา 2565 เทอมที่ 1 โปรเจคนี้ทำเกี่ยวกับแอพธนาคารที่สามารถโอน ฝาก และถอนเงินได้ เพียงใช้แอปพลิเคชั่น",
         bg: "5E8379"
     },
     {

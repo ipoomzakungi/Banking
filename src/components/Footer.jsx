@@ -5,6 +5,7 @@ import { mobile, tablet } from "../responsive"
 const Container = styled.div`
     display: flex;
     background-color:#387766;
+    padding: 0px 20px;
 `
 const Left = styled.div`
     flex: 1;
@@ -74,9 +75,9 @@ const Footer = () => {
     return (
         <Container>
             <Left>
-                <Logo>Banking.</Logo>
-                <Desc>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus qui ipsam quas placeat aperiam nulla explicabo numquam cumque deleniti nam accusamus aliquam facere commodi nisi quos, distinctio quod obcaecati eaque?</Desc>
-                <SocialContainer>
+                <Logo>QPlus.</Logo>
+                <Desc>โปรเจค QPlus เป็นโปรเจคที่จัดทำขึ้นโดยกลุ่ม Q4U ในวิชา Software Architecture and Design ในปีการศึกษา 2565 เทอมที่ 1 โปรเจคนี้ทำเกี่ยวกับแอพธนาคารที่สามารถโอน ฝาก และถอนเงินได้ เพียงใช้แอปพลิเคชั่น</Desc>
+                {/* {/* <SocialContainer>
                     <SocialIcon color="385999">
                         <Facebook/>
                     </SocialIcon>
@@ -86,10 +87,10 @@ const Footer = () => {
                     <SocialIcon color="0088cc">
                         <Telegram/>
                     </SocialIcon>
-                </SocialContainer>
+                </SocialContainer> */}
             </Left>
             <Center>
-                <Title>Useful Links</Title>
+                {/* <Title>Useful Links</Title>
                 <List>
                     <ListItem>A</ListItem>
                     <ListItem>B</ListItem>
@@ -98,11 +99,11 @@ const Footer = () => {
                     <ListItem>E</ListItem>
                     <ListItem>F</ListItem>
                     <ListItem>G</ListItem>
-                </List>
+                </List> */}
 
             </Center>
             <Right>
-                <Title>Contact</Title>
+                {/* <Title>Contact</Title>
                 <ContactItem>
                     <Room style={{marginRight:"10px"}}/>
                     XXX. Path , So ASD 456
@@ -114,9 +115,9 @@ const Footer = () => {
                 <ContactItem>
                     <MailOutline style={{marginRight:"10px"}}/>
                     XEmail@D 456
-                </ContactItem>
+                </ContactItem> */}
             </Right>
-            <div id="element_target"></div>
+            <div id="element_target"></div> 
 
         </Container>
     )

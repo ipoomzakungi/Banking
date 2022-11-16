@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { mobile, tablet, tablet_s } from '../responsive'
-import {  animateScroll as  scroller } from 'react-scroll'
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { AnimatedOnScroll } from 'react-animated-css-onscroll'
 
 const Container = styled.div`
@@ -143,9 +143,12 @@ const Image = styled.img`
     width: ${props => props.width}%; 
     max-width: 100%; 
     max-width: ${props => props.maxWidth}; 
-    max-height: 350px;
 
-   
+    ${tablet({
+        maxHeight: "300px",
+
+    
+    })}
 `
 
 const Title = styled.h1`
@@ -243,9 +246,9 @@ const Features = () => {
                                 สามารถใช้งานได้ทุกที่
                             </Title>
                             <Desc>
-                                ขอเพียงแค่ Download App "ชื่อแอพ" ก็สามารถทำธุรกรรมได้ทุกที่ทั่วโลก
+                                ขอเพียงแค่ Download App "Q Plus" ก็สามารถทำธุรกรรมได้ทุกที่ทั่วโลก
                             </Desc>
-                            <Button onClick={() => scrollTo("about-us")} color="387766" hover="4b9480" borderRadius="5px" right="20px" bottom="40px">
+                            <Button onClick={() => scrollTo("download")} color="387766" hover="4b9480" borderRadius="5px" right="20px" bottom="40px">
                                 Download
                             </Button>
                         </Content>
@@ -283,7 +286,7 @@ const Features = () => {
                             </Desc>
                         </Content>
                         <ImageContainer direction="right" position="absolute" bg="A6B78C">
-                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWd42Z.png" />
+                            <Image src="https://sv1.picz.in.th/images/2022/11/17/GSKgqR.png" />
                         </ImageContainer>
                     </ContentPack>
                 </AnimatedOnScroll>
@@ -324,14 +327,14 @@ const Features = () => {
 
                     <ContentPack mgleft="auto">
                         <ImageContainer direction="left" position="relative" bg="C7D5B1">
-                            <Image src="https://sv1.picz.in.th/images/2022/10/18/vWdzcu.png" />
+                            <Image src="https://sv1.picz.in.th/images/2022/11/17/GSKV51.png" />
                         </ImageContainer>
                         <Content border="none" shadow="none" bg="transparent" name="Download" >
 
                             <Title textalign="right" >
                                 หน้าสรุปผล
                             </Title>
-                            <Desc textalign="right" width="100%" name="about-us">
+                            <Desc textalign="right" width="100%" name="download">
                                 สรุปผลรายรับและรายจ่ายของคุณภายในหน้าเดียว อีกทั้งสามารถดูรายการย้อนหลังได้
                             </Desc>
                         </Content>

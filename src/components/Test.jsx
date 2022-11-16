@@ -32,8 +32,10 @@ const Test = () => {
         console.log("Row Id", id, balance);
         let amount = prompt("Set to:", " 500");
         console.log(toDo)
-        if (amount == null || amount == '') {
+        
+        if (amount == null || amount == '' || !Number(amount)) {
             console.log("CHECK")
+            alert("Please check input")
 
         }
         else {
