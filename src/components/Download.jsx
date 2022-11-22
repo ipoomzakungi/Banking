@@ -131,9 +131,9 @@ const Download = () => {
         <Detail>
           <Title>Download</Title>
           <Desc fz="20px">สามารถ Download ได้ผ่านช่องทางด้านล่างนี้</Desc>
-          <Button color="387766" hover="4b9480" borderRadius="5px">
+          {/* <Button color="387766" hover="4b9480" borderRadius="5px">
             Google play
-          </Button>
+          </Button> */}
 
           <Button color="387766" hover="4b9480" borderRadius="5px" name="about-us">
             APK

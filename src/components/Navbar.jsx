@@ -65,7 +65,11 @@ ${tablet({})}
 display:flex;
 align-items:center;
 cursor:pointer;
+transition: all 0.2s ease;
 
+  &:hover {
+    transform: scale(1.05);
+  }
 ${mobile({
   fontSize: "24px",
 
@@ -149,6 +153,8 @@ const MenuItem = styled.div`
 
   &:hover{
     border-width: 3px;
+    transform: scale(1.05);
+
   }
 
   ${tablet({

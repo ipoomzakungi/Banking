@@ -27,9 +27,11 @@ export const login = async (dispatch, user) => {
 
 export const updateAmount = async (dispatch, user) => {
     try {
-        console.log(user)
+        console.log("get payload",user)
         
-        const res = await publicRequest.put("/test/deposit", user);
+        //const res = await publicRequest.put("/test/deposit", user);
+        const res = await publicRequest.post("/user-payment/deposit", user);
+        console.log(res)
         dispatch(fetchingData());
         
     } catch (err) {

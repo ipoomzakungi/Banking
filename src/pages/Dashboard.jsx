@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Logout from '../components/Logout'
-import Test from '../components/Test'
+import Shop from '../components/Shop'
+import User from '../components/User'
+import { Context } from "../context/Context";
 
+
+function renderElement(checkPage){
+  if(checkPage == 1)
+     return <User/>;
+  else if(checkPage == 2 )
+    return <Shop/>;
+
+  return null;
+}
 
 const Dashboard = () => {
+  const { page } = useContext(Context);
+
+
   return (
     <div>
       <Logout />
-
-      <Test></Test>
+      {renderElement(page)
+      }
+      {/* <User></User>
+      <Shop></Shop> */}
     </div>
   )
 }

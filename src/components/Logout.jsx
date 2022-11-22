@@ -15,6 +15,8 @@ import { Badge } from "@material-ui/core";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutStart } from "../redux/userRedux";
+import { Context } from "../context/Context";
+import { useContext } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -65,7 +67,11 @@ const Logo = styled.h1`
   display:flex;
   align-items: center;
   cursor: pointer;
+  transition: all 0.2s ease;
 
+  &:hover {
+    transform: scale(1.05);
+  }
   ${mobile({
     fontSize: "24px",
   })}
@@ -88,7 +94,6 @@ const Menu = styled.div`
   })}
 `;
 
-
 const MenuItem = styled.div`
 
   font-size: 14px;
@@ -110,6 +115,8 @@ const MenuItem = styled.div`
 
   &:hover{
     border-width: 3px;
+    transform: scale(1.05);
+
   }
 
   
@@ -121,6 +128,7 @@ const MenuItem = styled.div`
 const Logout = () => {
   const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
+  const { page,setPage } = useContext(Context);
 
   var Link = Scroll.Link;
   const [visible, setVisible] = useState(false);
@@ -139,10 +147,15 @@ const Logout = () => {
     });
     setVisibleFalse();
   }
-  
+
+  function redirect(selectPage) {
+    //window.location.href = link;
+    setPage(selectPage)
+  }
 
   function handleClickLogout() {
     dispatch(logoutStart());
+    //console.log(page)
   }
 
   return (
@@ -155,6 +168,25 @@ const Logout = () => {
             </ImgContainer>
             4QU
           </Logo>
+
+          <MenuItem
+            onClick={() => redirect(1)}
+            fontSize="16px"
+            padBottom="11px"
+            left="20%"
+            top="25px"
+          >
+            User
+          </MenuItem>
+          <MenuItem
+            onClick={() => redirect(2)}
+            fontSize="16px"
+            padBottom="11px"
+            left="28%"
+            top="25px"
+          >
+            Shop
+          </MenuItem>
         </Left>
 
         <Right>
