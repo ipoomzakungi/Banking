@@ -3,16 +3,16 @@
 export const sliderItems = [
     {
         id: 1,
-        img: "https://sv1.picz.in.th/images/2022/10/18/pMecOy.png",
+        img: "https://sv1.picz.in.th/images/2022/11/23/Gwisha.png",
         title: "Q Plus",
         desc: "โปรเจค QPlus เป็นโปรเจคที่จัดทำขึ้นโดยกลุ่ม Q4U ในวิชา Software Architecture and Design ในปีการศึกษา 2565 เทอมที่ 1 โปรเจคนี้ทำเกี่ยวกับแอพธนาคารที่สามารถโอน ฝาก และถอนเงินได้ เพียงใช้แอปพลิเคชั่น",
         bg: "5E8379"
     },
     {
         id: 2,
-        img: "https://i.mydramalist.com/qpk1P_5f.jpg",
-        title: "รูปทีมเท่ ๆ",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nesciunt obcaecati saepe, neque ipsum .",
+        img: "https://sv1.picz.in.th/images/2022/11/23/Gwc9et.webp",
+        title: "4QU Team",
+        desc: "เป็นกลุ่มที่รวมไปด้วยบุคคลที่มากพรสวรรค์ กลุ่มคนที่มีความสามารถเฉพาะด้าน และสามารถช่วยเหลือกันได้อย่างเต็มที่",
         bg: "76978E"
     },
 ];

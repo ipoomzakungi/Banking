@@ -122,17 +122,21 @@ const ImgContainer = styled.div`
   width: 50%;
   flex: 1;
   align-items: center;
+  margin-top: 25px;
   justify-content: center;
   ${mobile_l({
     marginTop: "20vw",
   })}
 `;
+
 const InfoContainer = styled.div`
   flex: 1;
 `;
 
 const Image = styled.img`
   height: 90%;
+  width:100%;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -157,26 +161,31 @@ const Title = styled.h1`
   ${mobile_l({
     fontSize: "20px",
   })}
+  text-align:center;
+  width:100%;
 `;
 const Desc = styled.p`
-  margin: 30px 0px;
+  margin: 30px 30px;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 3px;
   width: 80%;
+
   text-align: center;
   ${tablet_s({
     width: "70%",
+    marginLeft:"20px",
+
   })}
   ${mobile_l({
     fontSize: "14px",
-    margin: "15px 0px",
+    margin: "15px 40px",
 
   })}
 ${mobile({
     fontSize: "12px",
     letterSpacing: "0px",
-    margin: "15px 0px",
+    margin: "15px 20px",
 
   })}
 `;

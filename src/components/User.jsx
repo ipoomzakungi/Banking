@@ -42,12 +42,15 @@ const User = () => {
     const getTests = async () => {
       try {
         //const res = await publicRequest.get("/test/create");
-        //const res = await axios.get("http://localhost:5000/api/test/create");
-        const res = await axios.get("https://2e5f-110-164-126-99.ap.ngrok.io/user-payment/accounts")
+        //const res = await axios.get("http://localhost:5000/api/user-payment/accounts");
+        const res = await axios.get("https://7695-110-164-126-99.ap.ngrok.io/user-payment/accounts/" , {
+          headers : { "ngrok-skip-browser-warning" : "A",},
+        });
+        //const res = await axios.get("https://204c-171-103-180-74.ap.ngrok.io/user-payment/accounts")
         setUsers(res.data.accounts);
         //setUsers(res.data);
         console.log("users", users);
-        console.log("res", res);
+        console.log("res", res.data);
       } catch (err) {}
     };
     getTests();
@@ -127,20 +130,20 @@ const User = () => {
       selector: (row) => row.balanced,
       sortable: true,
     },
-    {
-      name: "block",
-      button: true,
+    // {
+    //   name: "block",
+    //   button: true,
 
-      selector: (row) => row.accountNumber,
-      sortable: true,
-    },
-    {
-      name: "remove",
-      button: true,
+    //   selector: (row) => row.accountNumber,
+    //   sortable: true,
+    // },
+    // {
+    //   name: "remove",
+    //   button: true,
 
-      selector: (row) => row.balanced,
-      sortable: true,
-    },
+    //   selector: (row) => row.balanced,
+    //   sortable: true,
+    // },
     {
       name: "Block",
       button: true,
