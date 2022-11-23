@@ -43,7 +43,7 @@ const User = () => {
       try {
         //const res = await publicRequest.get("/test/create");
         //const res = await axios.get("http://localhost:5000/api/user-payment/accounts");
-        const res = await axios.get("https://7695-110-164-126-99.ap.ngrok.io/user-payment/accounts/" , {
+        const res = await axios.get("https://9018-223-24-186-108.ap.ngrok.io/user-payment/accounts/" , {
           headers : { "ngrok-skip-browser-warning" : "A",},
         });
         //const res = await axios.get("https://204c-171-103-180-74.ap.ngrok.io/user-payment/accounts")
