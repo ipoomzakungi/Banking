@@ -34,6 +34,7 @@ const Wrapper = styled.div`
 const ImageContainer = styled.div`
   flex: 1;
   background-color: coral;
+  min-height:300px;
   ${mobile({
     width: "100%",
     height: "20%",
@@ -109,9 +110,9 @@ const About = () => {
           <Title>About Us</Title>
           <Desc fz="20px">
             กลุ่ม 4QU เป็นกลุ่มที่เกิดขึ้นเพื่อจัดทำงานในวิชา Software
-            Architecture and Design มีสมาชิกดังนี้
+            Architecture and Design 
           </Desc>
-          <Desc fz="16px">1. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
+          {/* <Desc fz="16px">1. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
           <Desc fz="16px">2. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
           <Desc fz="16px">3. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
           <Desc fz="16px">4. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
@@ -120,7 +121,7 @@ const About = () => {
           <Desc fz="16px">7. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
           <Desc fz="16px">8. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
           <Desc fz="16px">9. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
-          <Desc fz="16px">10. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc>
+          <Desc fz="16px">10. 63010592 ปัณณวรรธ สุวรรณพงศ์</Desc> */}
         </Detail>
       </Wrapper>
     </Container>
